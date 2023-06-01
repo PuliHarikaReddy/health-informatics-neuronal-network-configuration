@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Neuroid Network Genome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 23%;
+  padding: 10px;
+  height: 1000px; /* Should be removed. Only for demonstration */
+}
+
+.column1 {
+  float: right;
+  width: 60%;
+  padding: 10px;
+  height: 1000px; /* Should be removed. Only for demonstration */
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+label {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 3px;
+  
+ font-size: small; 
+}
+
+</style>
+</head>
+
+
+<body style="background-color:white">
+
+<center>
+<h1 style="background-color:rgba(245, 39, 85, 0.29);">Neuroid Network Genome</style></h1>
+</center>
+
+
+<div class="column" style="background-color:#bbb;">
+<center>
+
+    <h2 style="background-color:white;">Inputs</h2>
+    <style="background-color:rgba(245, 39, 85, 0.29);">
+
+
+       <form>
+         <div class="input">
+ <label for="vector">Neuroid Network Format:(in, hid1, hid2,..., hidn, out)</label><br><br>
+  <input type="text" id="vector" name="vector" required><br>
+  <p>Neuroidal Vector is: <span id="vec"></span></p>
+</div>
+<br>
+
+<div class="slider1">
+ <label for="feedback">Percent Feedback:</label><br>
+  <input type="range" min="1" max="30" value="15" class="slider1" id="feedback" required><br>
+  <p>Feedback Percent is: <span id="demo"></span></p>
+  <br>
+</div>
+ <input type="submit" id="submit" name="Submit" value="Submit" onclick="getInputValue();"><br><br>
+
+
+<script>
+var vector_input = document.getElementById("vector");
+var vector_output = document.getElementById("vec");
+vector_output.innerHTML = vector_input.value;
+
+vector_input.oninput = function() {
+  vector_output.innerHTML = this.value;
+}
+</script>
+
+<script>
+var slider1 = document.getElementById("feedback");
+var output1 = document.getElementById("demo");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+</script>
+
+
+</form> 
+
+
+<form>
+
+<div class="slider2">
+ <label for="mutations">Percent Mutations:</label><br>
+  <input type="range" min="1" max="30" value="15" class="slider2" id="mutations" required><br
+   <p>Mutations Percent is: <span id="permuta"></span></p>
+</div> 
+
+<div class="slider3">
+ <label for="transposes">Percent Transposes:</label><br>
+  <input type="range" min="1" max="30" value="15" class="slider3" id="transposes"><br>
+   <p>Transposes Percent is: <span id="pertran"></span></p>
+</div>
+
+<div class="slider4">
+ <label for="survival"> Survival Rate:</label><br>
+  <input type="range" min="1" max="30" value="15" class="slider4" id="survival">
+   <p>Survival Rate is: <span id="survrate"></span></p>
+</div>
+
+<br>
+
+
+<script>
+var slider2 = document.getElementById("mutations");
+var output2 = document.getElementById("permuta");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+</script>
+
+<script>
+var slider3 = document.getElementById("transposes");
+var output3 = document.getElementById("pertran");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+</script>
+
+<script>
+var slider4 = document.getElementById("survival");
+var output4 = document.getElementById("survrate");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+</script>
+</form>
+
+
+<form>
+<div class="numpop">
+ <label for="numpop">Number of Individuals in the population</label><br><br>
+  <input type="Number" id="numpop" name="numpop" required><br>
+   <p>No.of individuals is:<span id="pop"></span></p>
+</div>
+<div class="fit">
+<label for="fit">Goal Fitness</label><br><br>
+  <input type="Number" id="fit" name="fit" required><br><br>
+   <p>Maximum Fitness is:<span id="goalfit"></span></p>
+
+<script>
+var numpop_input = document.getElementById("numpop");
+var numpop_output = document.getElementById("pop");
+numpop_output.innerHTML = numpop_input.value;
+
+numpop_input.oninput = function() {
+numpop_output.innerHTML = this.value;
+}
+</script>
+
+<script>
+var fit_input = document.getElementById("fit");
+var fit_output = document.getElementById("goalfit");
+fit_output.innerHTML = fit_input.value;
+
+fit_input.oninput = function() {
+fit_output.innerHTML = this.value;
+}
+</script>
+
+</form>
+
+<center>
+<form action="/action_page.php">
+  <label for="datafile">Training dataset:</label><br><br>
+  <input type="file" id="datafile" name="datafile" multiple><br><br>
+</form>
+
+</center>
+</center>
+</div>
+
+
+
+<div class="column1" style="background-color:white;">
+<center>
+   <h2>Outputs</h2>
+<form>
+<label for="">Initiate Training</label>
+<button onclick="myFunction()">Run</button>
+
+<script>
+function myFunction() {
+  window.open("output.html");
+}
+</script>
+
+<button onclick="pauseVid()" type="button">Pause</button>
+<button onclick="pauseVid()" type="button">stop</button><br>
+</form>
+
+</center>
+</div>
+
+
+</body>
+</style>
+</center>
+</html>
